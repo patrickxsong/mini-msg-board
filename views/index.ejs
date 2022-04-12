@@ -2,10 +2,22 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Welcome to <%= title %>:</p>
+    <ul>
+      <% messages.forEach(message => { %>
+      <li>
+        <strong><%= message.user %> </strong>
+        <em><%= format(message.added, {addSuffix: true}) %></em>
+        <div><%= message.text %></div>
+      </li>
+      <% }) %>
+    </ul>
+    <br />
+    <br />
+    <a href="/new">New Message</a>
   </body>
 </html>
